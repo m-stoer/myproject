@@ -83,6 +83,7 @@
           </execution>
         </executions>
       </plugin>
+      
       <plugin>
         <groupId>io.helidon.build-tools</groupId>
         <artifactId>helidon-maven-plugin</artifactId>
@@ -91,6 +92,40 @@
             <id>third-party-license-report</id>
           </execution>
         </executions>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.2.4</version>
+        
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        
+        <configuration>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
+          
+          <transformers>
+            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+              <mainClass>${main.class}</mainClass>
+            </transformer>
+          </transformers>
+        </configuration>
+        
       </plugin>
     </plugins>
   </build>
