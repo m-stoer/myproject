@@ -1,8 +1,9 @@
 package io.helidon.examples.quickstart.mp;
 
-import one.microstream.cluster.nodelibrary.ClusterStorageManager;
+import one.microstream.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.cluster.nodelibrary.common.ClusterStorageManagerProvider;
 
-public class DB
+public class DB implements ClusterStorageManagerProvider
 {
 	private static final DB INSTANCE = new DB();
 
@@ -27,5 +28,11 @@ public class DB
 	public DataRoot root()
 	{
 		return this.root;
+	}
+	
+	@Override
+	public ClusterStorageManager provideClusterStorageManager()
+	{
+		return this.storage();
 	}
 }

@@ -19,17 +19,12 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 
-import one.microstream.cluster.nodelibrary.StorageClusterController;
+import one.microstream.cluster.nodelibrary.helidon.StorageClusterController;
 
 @Path("/")
 public class PersonResource extends StorageClusterController
 {
 	private static final JsonBuilderFactory JSON = Json.createBuilderFactory(Collections.emptyMap());
-
-	public PersonResource()
-	{
-		super(DB.get().storage());
-	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
