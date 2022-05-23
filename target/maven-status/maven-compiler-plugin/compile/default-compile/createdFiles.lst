@@ -1,0 +1,6 @@
+io\helidon\examples\quickstart\mp\GreetingProvider.class
+io\helidon\examples\quickstart\mp\PersonResource.class
+io\helidon\examples\quickstart\mp\GreetResource.class
+io\helidon\examples\quickstart\mp\Person.class
+io\helidon\examples\quickstart\mp\DB.class
+io\helidon\examples\quickstart\mp\DataRoot.class
