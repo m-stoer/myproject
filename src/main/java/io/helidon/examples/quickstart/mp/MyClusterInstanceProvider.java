@@ -6,7 +6,7 @@ import one.microstream.cluster.nodelibrary.common.spi.ClusterStorageManagerProvi
 public class MyClusterInstanceProvider implements ClusterStorageManagerProvider
 {
 	@Override
-	public ClusterStorageManager provideClusterStorageManager()
+	public ClusterStorageManager<DataRoot> provideClusterStorageManager()
 	{
 		return DB.get().storage();
 	}
