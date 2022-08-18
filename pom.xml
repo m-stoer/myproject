@@ -122,11 +122,6 @@
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
               <mainClass>${main.class}</mainClass>
             </transformer>
-            
-            <!-- Fixes nasty missing dependencies -->
-            <transformers>
-  <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-</transformers>
           </transformers>
         </configuration>
 
