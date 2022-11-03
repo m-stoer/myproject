@@ -11,19 +11,19 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
+			final List<String> myStrings = DB.get().root().strings;
 			if (myString.length() > this.MAX_STRING_COUNT)
 			{
 				myStrings.clear();
 			}
 			myStrings.add(myString);
-			DB.get().storage().store(myStrings);
+			DB.get().DEBUG.store(myStrings);
 		}
 	}
 
 	public List<String> getMyStrings()
 	{
-		return new ArrayList<>(DB.get().root().thatIsCorrectSir);
+		return new ArrayList<>(DB.get().root().strings);
 	}
 
 	public String getMyString(final String myString)
@@ -35,9 +35,9 @@ public class MyStringDAO
 	{
 		synchronized (DB.get())
 		{
-			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
+			final List<String> myStrings = DB.get().root().strings;
 			myStrings.remove(myString);
-			DB.get().storage().store(myStrings);
+			DB.get().DEBUG.store(myStrings);
 		}
 	}
 }
