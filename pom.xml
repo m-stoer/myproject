@@ -3,14 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-	<parent>
-		<groupId>io.helidon.applications</groupId>
-		<artifactId>helidon-mp</artifactId>
-		<version>3.2.0</version>
-		<relativePath />
-	</parent>
-	
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.helidon.applications</groupId>
+				<artifactId>helidon-mp</artifactId>
+				<version>3.2.0</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<groupId>io.helidon.examples</groupId>
 	<artifactId>helidon-quickstart-mp</artifactId>
 	<version>1.0-SNAPSHOT</version>
@@ -73,7 +78,7 @@
 			<artifactId>hamcrest-all</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>one.microstream</groupId>
 			<artifactId>microstream-cluster-nodelibrary-helidon</artifactId>
