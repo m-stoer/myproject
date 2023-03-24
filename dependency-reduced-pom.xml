@@ -94,6 +94,7 @@
   </dependencyManagement>
   <properties>
     <maven.compiler.target>17</maven.compiler.target>
+    <mainClass>io.helidon.microprofile.cdi.Main</mainClass>
     <maven.compiler.source>17</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
