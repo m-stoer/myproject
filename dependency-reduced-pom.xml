@@ -93,9 +93,12 @@
     </dependencies>
   </dependencyManagement>
   <properties>
-    <maven.compiler.target>17</maven.compiler.target>
+    <version.plugin.jandex>1.0.6</version.plugin.jandex>
     <mainClass>io.helidon.microprofile.cdi.Main</mainClass>
     <maven.compiler.source>17</maven.compiler.source>
+    <version.plugin.eclipselink>2.7.5.1</version.plugin.eclipselink>
+    <maven.compiler.target>17</maven.compiler.target>
+    <version.plugin.jaxb2>0.14.0</version.plugin.jaxb2>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 </project>
