@@ -114,6 +114,11 @@
 			<artifactId>microstream-enterprise-cluster-nodelibrary-helidon</artifactId>
 			<version>${microstream.nodelibrary.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>one.microstream</groupId>
+			<artifactId>microstream-storage-embedded</artifactId>
+			<version>08.00.00-MS-EA1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
