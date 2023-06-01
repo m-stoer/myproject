@@ -110,9 +110,9 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>one.microstream</groupId>
-			<artifactId>microstream-enterprise-cluster-nodelibrary-helidon</artifactId>
-			<version>${microstream.nodelibrary.version}</version>
+			<groupId>com.example.gaming</groupId>
+	<artifactId>example.gaming</artifactId>
+	<version>0.1</version>
 		</dependency>
 	</dependencies>
 
