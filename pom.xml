@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>com.example</groupId>
 	<artifactId>example</artifactId>
 	<version>0.1</version>
@@ -22,7 +22,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jdk.version>17</jdk.version>
 		<release.version>17</release.version>
-		<microstream.nodelibrary.version>1.1.0-SNAPSHOT</microstream.nodelibrary.version>
 	</properties>
 
 	<repositories>
@@ -112,7 +111,7 @@
 		<dependency>
 			<groupId>one.microstream</groupId>
 			<artifactId>microstream-enterprise-cluster-nodelibrary-helidon</artifactId>
-			<version>${microstream.nodelibrary.version}</version>
+			<version>1.1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>one.microstream</groupId>
