@@ -2,6 +2,9 @@ package com.example;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -15,32 +18,33 @@ import io.micronaut.http.context.ServerRequestContext;
 public class MyStringController
 {
 	private final MyStringDAO myStringDAO = new MyStringDAO();
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Get
 	public List<String> getAllMyString()
 	{
-		System.out.println("Received get all");
+		this.logger.info("Received get all");
 		return this.myStringDAO.getMyStrings();
 	}
 
 	@Get("/{myString}")
 	public String getMyString(@QueryValue final String myString)
 	{
-		System.out.println("Received get my string");
+		this.logger.info("Received get my string");
 		return this.myStringDAO.getMyString(myString);
 	}
 
 	@Put(consumes = MediaType.TEXT_PLAIN)
 	public void postMyString(@Body final String myString)
 	{
-		System.out.println("Received post my string");
+		this.logger.info("Received post my string");
 		final var writos = ServerRequestContext.currentRequest().get().getHeaders().get("Writos");
 		if (writos != null)
 		{
-			System.out.println("Request has writos with value: " + writos);
-			if(writos == "Pogos")
+			this.logger.info("Request has writos with value: " + writos);
+			if (writos == "Pogos")
 			{
-				System.out.println("Correct value, therefore we are savin!");
+				this.logger.info("Correct value, therefore we are savin!");
 				this.myStringDAO.addMyString(myString);
 			}
 		}
