@@ -12,7 +12,6 @@ import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Put;
 import io.micronaut.http.annotation.QueryValue;
-import io.micronaut.http.context.ServerRequestContext;
 
 @Controller("/")
 public class MyStringController
@@ -34,20 +33,11 @@ public class MyStringController
 		return this.myStringDAO.getMyString(myString);
 	}
 
-	@Put(consumes = MediaType.TEXT_PLAIN)
+	@Put(value = "/write", consumes = MediaType.TEXT_PLAIN)
 	public void postMyString(@Body final String myString)
 	{
 		this.logger.info("Received post my string");
-		final var writos = ServerRequestContext.currentRequest().get().getHeaders().get("Writos");
-		if (writos != null)
-		{
-			this.logger.info("Request has writos with value: " + writos);
-			if (writos == "Pogos")
-			{
-				this.logger.info("Correct value, therefore we are savin!");
-				this.myStringDAO.addMyString(myString);
-			}
-		}
+		this.myStringDAO.addMyString(myString);
 	}
 
 	@Delete("/{myString}")
