@@ -1,6 +1,7 @@
 package com.example.example;
 
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
@@ -8,8 +9,17 @@ import jakarta.ws.rs.core.Response;
 public class ExampleResource
 {
 	@GET
-	public Response root()
+	public Response get()
 	{
-		return Response.ok("Data root, created @ " + MicroStream.root().getData()).build();
+		return Response.ok(MicroStream.root().strings).build();
+	}
+
+	@PUT
+	public Response put()
+	{
+		final var s = MicroStream.root().strings;
+		s.add("Hello :)");
+		MicroStream.storage().store(s);
+		return Response.ok().build();
 	}
 }
