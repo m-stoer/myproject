@@ -5,3 +5,10 @@ netty:
   default:
     allocator:
       max-order: 3
+eclipsestore:
+  storage:
+    main:
+      root-class: com.example.DataRoot
+      channel-count: 4
+      housekeeping-interval: 1s
+      housekeeping-time-budget: 0.01s

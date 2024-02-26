@@ -13,7 +13,12 @@ import io.micronaut.http.annotation.QueryValue;
 @Controller("/")
 public class MyStringController
 {
-	private final MyStringDAO myStringDAO = new MyStringDAO();
+	private final MyStringDAO myStringDAO;
+	
+	public MyStringController(final MyStringDAO dao)
+	{
+		this.myStringDAO = dao;
+	}
 
 	@Get
 	public List<String> getAllMyString()

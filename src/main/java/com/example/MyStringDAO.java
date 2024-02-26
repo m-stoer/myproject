@@ -3,28 +3,42 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.store.storage.types.StorageManager;
+
+import io.micronaut.eclipsestore.RootProvider;
+import jakarta.inject.Singleton;
+
+@Singleton
 public class MyStringDAO
 {
 	@SuppressWarnings("unused")
 	private final int MAX_STRING_COUNT = 10_000;
+	private final StorageManager storage;
+	private final DataRoot root;
+
+	public MyStringDAO(final StorageManager storage, final RootProvider<DataRoot> root)
+	{
+		this.storage = storage;
+		this.root = root.root();
+	}
 
 	public void addMyString(final String myString)
 	{
-		synchronized (DB.get())
+		synchronized (this.storage)
 		{
-			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
+			final List<String> myStrings = this.root.thatIsCorrectSir;
 //			if (myString.length() > this.MAX_STRING_COUNT)
 //			{
 //				myStrings.clear();
 //			}
 			myStrings.add(myString);
-			DB.get().storage().store(myStrings);
+			this.storage.store(myStrings);
 		}
 	}
 
 	public List<String> getMyStrings()
 	{
-		return new ArrayList<>(DB.get().root().thatIsCorrectSir);
+		return new ArrayList<>(this.root.thatIsCorrectSir);
 	}
 
 	public String getMyString(final String myString)
@@ -34,11 +48,11 @@ public class MyStringDAO
 
 	public void deleteMyString(final String myString)
 	{
-		synchronized (DB.get())
+		synchronized (this.storage)
 		{
-			final List<String> myStrings = DB.get().root().thatIsCorrectSir;
+			final List<String> myStrings = this.root.thatIsCorrectSir;
 			myStrings.remove(myString);
-			DB.get().storage().store(myStrings);
+			this.storage.store(myStrings);
 		}
 	}
 }

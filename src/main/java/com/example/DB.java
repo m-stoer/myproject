@@ -1,33 +1,29 @@
 package com.example;
 
-import org.eclipse.serializer.reference.Lazy;
+import org.eclipse.store.storage.types.StorageManager;
 
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
+import io.micronaut.eclipsestore.RootProvider;
+import jakarta.inject.Singleton;
 
+@Singleton
 public class DB
 {
-	private static final DB INSTANCE = new DB();
-	
-	public static DB get()
-	{
-		return INSTANCE;
-	}
-	
-	private final Lazy<DataRoot> root;
-	private final ClusterStorageManager<DataRoot> storage = new ClusterStorageManager<>(new DataRoot());
+	private final StorageManager storage;
+	private final RootProvider<DataRoot> rootProvider;
 
-	public DB()
+	public DB(final RootProvider<DataRoot> rootProvider, final StorageManager storage)
 	{
-		this.root = this.storage.getRoot();
+		this.storage = storage;
+		this.rootProvider = rootProvider;
 	}
-	
-	public ClusterStorageManager<DataRoot> storage()
+
+	public StorageManager storage()
 	{
 		return this.storage;
 	}
 
 	public DataRoot root()
 	{
-		return this.root.get();
+		return this.rootProvider.root();
 	}
 }
