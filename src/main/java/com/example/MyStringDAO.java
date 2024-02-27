@@ -16,7 +16,10 @@ public class MyStringDAO
 	private final StorageManager storage;
 	private final DataRoot root;
 
-	public MyStringDAO(final StorageManager storage, final RootProvider<DataRoot> root)
+	public MyStringDAO(
+		final StorageManager storage,
+		final RootProvider<DataRoot> root
+	)
 	{
 		this.storage = storage;
 		this.root = root.root();
@@ -27,10 +30,10 @@ public class MyStringDAO
 		synchronized (this.storage)
 		{
 			final List<String> myStrings = this.root.thatIsCorrectSir;
-//			if (myString.length() > this.MAX_STRING_COUNT)
-//			{
-//				myStrings.clear();
-//			}
+			//			if (myString.length() > this.MAX_STRING_COUNT)
+			//			{
+			//				myStrings.clear();
+			//			}
 			myStrings.add(myString);
 			this.storage.store(myStrings);
 		}
