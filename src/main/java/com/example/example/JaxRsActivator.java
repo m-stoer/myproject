@@ -6,11 +6,11 @@ import java.util.Set;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.ws.rs.ApplicationPath;
-import one.microstream.enterprise.cluster.nodelibrary.helidon.MicrostreamBeanProvider;
+import one.microstream.enterprise.cluster.nodelibrary.helidon.MicroStreamBeanProvider;
 
 @ApplicationScoped
 @ApplicationPath("/")
-public class JaxRsActivator extends MicrostreamBeanProvider
+public class JaxRsActivator extends MicroStreamBeanProvider
 {
 	private Collection<Class<?>> getAppResources()
 	{
