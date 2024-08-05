@@ -16,10 +16,10 @@ public class ExampleResource
 	private final ClusterStorageManager<DataRoot> storage;
 
 	@Inject
-	public ExampleResource(final ClusterStorageManager<DataRoot> storage)
+	public ExampleResource(final ClusterStorageManager storage)
 	{
 		this.storage = storage;
-		this.root = storage.root().get();
+		this.root = this.storage.root().get();
 	}
 
 	@GET

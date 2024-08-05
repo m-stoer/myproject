@@ -9,7 +9,7 @@ public class ExampleRootProvider
 {
 	@ApplicationScoped
 	@Produces
-	public RootProvider<DataRoot> rootProvider()
+	public RootProvider rootProvider()
 	{
 		return DataRoot::new;
 	}
