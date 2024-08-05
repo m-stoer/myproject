@@ -34,13 +34,28 @@
 			<url>https://repo.microstream.one/repository/ms-ee/</url>
 		</repository>
 	</repositories>
+	
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>2.22.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 	<dependencies>
+	   <!-- MicroStream / Eclipse-Store -->
         <dependency>
             <groupId>one.microstream</groupId>
             <artifactId>microstream-enterprise-cluster-nodelibrary-helidon</artifactId>
             <version>1.1.0-SNAPSHOT</version>
         </dependency>
+        
+        <!-- Helidon -->
         <dependency>
             <groupId>jakarta.json.bind</groupId>
             <artifactId>jakarta.json.bind-api</artifactId>
@@ -56,12 +71,27 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+            <groupId>io.helidon.microprofile.bundles</groupId>
+            <artifactId>helidon-microprofile-core</artifactId>
+        </dependency>
+        
+        <!-- Logging -->
+        <dependency>
             <groupId>io.helidon.logging</groupId>
             <artifactId>helidon-logging-log4j</artifactId>
         </dependency>
         <dependency>
-            <groupId>io.helidon.microprofile.bundles</groupId>
-            <artifactId>helidon-microprofile-core</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
         </dependency>
 	</dependencies>
 
