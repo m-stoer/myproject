@@ -7,17 +7,18 @@ import org.eclipse.store.storage.types.StorageManager;
 
 import io.micronaut.eclipsestore.RootProvider;
 import jakarta.inject.Singleton;
+import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
 @Singleton
 public class MyStringDAO
 {
 	@SuppressWarnings("unused")
 	private final int MAX_STRING_COUNT = 10_000;
-	private final StorageManager storage;
+	private final ClusterStorageManager storage;
 	private final DataRoot root;
 
 	public MyStringDAO(
-		final StorageManager storage,
+		final ClusterStorageManager storage,
 		final RootProvider<DataRoot> root
 	)
 	{

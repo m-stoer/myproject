@@ -14,7 +14,7 @@ import io.micronaut.http.annotation.QueryValue;
 public class MyStringController
 {
 	private final MyStringDAO myStringDAO;
-	
+
 	public MyStringController(final MyStringDAO dao)
 	{
 		this.myStringDAO = dao;
@@ -24,6 +24,12 @@ public class MyStringController
 	public List<String> getAllMyString()
 	{
 		return this.myStringDAO.getMyStrings();
+	}
+
+	@Get("/explode")
+	public void explode()
+	{
+		System.exit(1);
 	}
 
 	@Get("/{myString}")
