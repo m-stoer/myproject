@@ -35,7 +35,7 @@ public class MyStringDAO
 			//				myStrings.clear();
 			//			}
 			myStrings.add(myString);
-			this.storage.store(myStrings);
+			this.storage.store(myStrings, false);
 		}
 	}
 
@@ -55,7 +55,7 @@ public class MyStringDAO
 		{
 			final List<String> myStrings = this.root.thatIsCorrectSir;
 			myStrings.remove(myString);
-			this.storage.store(myStrings);
+			this.storage.store(myStrings, false);
 		}
 	}
 }
