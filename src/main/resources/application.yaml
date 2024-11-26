@@ -1,0 +1,4 @@
+eclipsestore:
+  distribution:
+    kafka:
+      async: true
