@@ -6,6 +6,9 @@ netty:
     allocator:
       max-order: 3
 eclipsestore:
+  distribution:
+    kafka:
+      async: false
   storage:
     main:
       root-class: com.example.DataRoot

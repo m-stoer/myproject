@@ -7,18 +7,17 @@ import org.eclipse.store.storage.types.StorageManager;
 
 import io.micronaut.eclipsestore.RootProvider;
 import jakarta.inject.Singleton;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
 @Singleton
 public class MyStringDAO
 {
 	@SuppressWarnings("unused")
 	private final int MAX_STRING_COUNT = 10_000;
-	private final ClusterStorageManager storage;
+	private final StorageManager storage;
 	private final DataRoot root;
 
 	public MyStringDAO(
-		final ClusterStorageManager storage,
+		final StorageManager storage,
 		final RootProvider<DataRoot> root
 	)
 	{
@@ -36,7 +35,7 @@ public class MyStringDAO
 			//				myStrings.clear();
 			//			}
 			myStrings.add(myString);
-			this.storage.store(myStrings, false);
+			this.storage.store(myStrings);
 		}
 	}
 
@@ -56,7 +55,7 @@ public class MyStringDAO
 		{
 			final List<String> myStrings = this.root.thatIsCorrectSir;
 			myStrings.remove(myString);
-			this.storage.store(myStrings, false);
+			this.storage.store(myStrings);
 		}
 	}
 }
