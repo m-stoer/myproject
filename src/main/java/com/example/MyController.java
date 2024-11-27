@@ -7,6 +7,7 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
 import io.micronaut.http.annotation.QueryValue;
 
@@ -48,5 +49,11 @@ public class MyController
 	public void deleteMyString(@QueryValue final String myString)
 	{
 		this.myStringDAO.deleteMyString(myString);
+	}
+	
+	@Post("/omega")
+	public void omega()
+	{
+		this.myStringDAO.testOmegaStore();
 	}
 }
