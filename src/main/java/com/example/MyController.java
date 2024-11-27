@@ -11,11 +11,11 @@ import io.micronaut.http.annotation.Put;
 import io.micronaut.http.annotation.QueryValue;
 
 @Controller("/")
-public class MyStringController
+public class MyController
 {
-	private final MyStringDAO myStringDAO;
+	private final MyDao myStringDAO;
 
-	public MyStringController(final MyStringDAO dao)
+	public MyController(final MyDao dao)
 	{
 		this.myStringDAO = dao;
 	}
