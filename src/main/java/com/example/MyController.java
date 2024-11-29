@@ -45,12 +45,18 @@ public class MyController
 		this.myStringDAO.addMyString(myString);
 	}
 
+	@Put(value = "/spam", consumes = MediaType.TEXT_PLAIN)
+	public void postSpamMyString(@Body final String myString)
+	{
+		this.myStringDAO.addMySpam(myString);
+	}
+
 	@Delete("/{myString}")
 	public void deleteMyString(@QueryValue final String myString)
 	{
 		this.myStringDAO.deleteMyString(myString);
 	}
-	
+
 	@Post("/omega")
 	public void omega()
 	{

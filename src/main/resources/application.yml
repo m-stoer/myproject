@@ -8,7 +8,7 @@ netty:
 eclipsestore:
   distribution:
     kafka:
-      async: false
+      async: true
   storage:
     main:
       root-class: com.example.DataRoot

@@ -32,6 +32,18 @@ public class MyDao
 		}
 	}
 
+	/**
+	 * Same as {@link #addMyString(String)} but clears the list after 10_000 strings
+	 */
+	public void addMySpam(String myString)
+	{
+		if(this.root.strings.size() > 10_000)
+		{
+			this.root.strings.clear();
+		}
+		this.addMyString(myString);
+	}
+
 	public List<String> getMyStrings()
 	{
 		return new ArrayList<>(this.root.strings);
