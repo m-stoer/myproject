@@ -29,7 +29,7 @@ public class AuthorController
 		this.storage = storage;
 		this.authors = storage.root().get().authors;
 	}
-
+	
 	@Post("/explode")
 	public void explode()
 	{

@@ -57,16 +57,39 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- Eclipse Store S3 Backup Funcionality -->
+		<dependency>
+			<groupId>org.eclipse.store</groupId>
+			<artifactId>afs-aws-s3</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>s3</artifactId>
+			<version>2.26.14</version>
+		</dependency>
+		<!-- Make aws see credentials provided via attached ServiceAccounts -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>sts</artifactId>
+            <version>2.26.14</version>
+		</dependency>
+
+		<!-- MicroStream Nodelibrary -->
 		<dependency>
 			<groupId>one.microstream</groupId>
 			<artifactId>microstream-enterprise-cluster-nodelibrary-micronaut</artifactId>
 			<version>${microstream.nodelibrary.version}</version>
 		</dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-slf4j2-impl</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j2-impl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Micronaut -->
 		<dependency>
 			<groupId>io.micronaut</groupId>
 			<artifactId>micronaut-http-client</artifactId>
