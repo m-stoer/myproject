@@ -42,4 +42,17 @@ public class RootController
 
 		LOG.info("Storage backup is now being created in the background");
 	}
+
+	@Post("/test")
+	public void test()
+	{
+		LOG.info("Creating a storage backup");
+
+		final var s3 = S3Client.builder().credentialsProvider(null).region(Region.EU_CENTRAL_1).build();
+
+		final var fs = BlobStoreFileSystem.New(S3Connector.New(s3));
+		storage.issueFullBackup(fs.ensureDirectoryPath("0ojpivj51f72qtot-eu-central-1", "backups", "test"));
+
+		LOG.info("Storage backup is now being created in the background");
+	}
 }
