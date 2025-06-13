@@ -10,12 +10,14 @@ import com.example.myclusterapp.storage.Authors;
 import com.example.myclusterapp.storage.DataRoot;
 
 import io.micronaut.core.annotation.NonNull;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
 import io.micronaut.http.annotation.Put;
+import io.micronaut.http.exceptions.HttpStatusException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -48,9 +50,14 @@ public class AuthorController
 	@Put
 	public Author putAuthor(@Body @NonNull @NotNull @Valid final PutAuthorDto dto)
 	{
+		if (dto.uid() != null && this.authors.find(dto.uid()) == null)
+		{
+			throw new HttpStatusException(HttpStatus.NOT_FOUND, "Could not find author with uid " + dto.uid());
+		}
+
 		final Author author;
 
-		if (dto.uid() == null || this.authors.remove(dto.uid()) == null)
+		if (dto.uid() == null)
 		{
 			author = new Author(dto.firstname(), dto.lastname());
 		}

@@ -55,8 +55,6 @@ public class BookController
 	@Put
 	public Book putBook(@Body @Valid @NonNull @NotNull final PutBookDto dto)
 	{
-		final Book book;
-
 		final Author author = this.authors.find(dto.authorUid());
 
 		if (author == null)
@@ -64,7 +62,14 @@ public class BookController
 			throw new HttpStatusException(HttpStatus.BAD_REQUEST, "No author found for id " + dto.authorUid());
 		}
 
-		if (dto.isbn() == null || this.books.remove(dto.isbn()) == null)
+		if (dto.isbn() != null && this.books.find(dto.isbn()) == null)
+		{
+			throw new HttpStatusException(HttpStatus.NOT_FOUND, "Could not find book with isbn " + dto.isbn());
+		}
+
+		final Book book;
+
+		if (dto.isbn() == null)
 		{
 			book = new Book(dto.title(), dto.publicationDate(), author);
 		}
