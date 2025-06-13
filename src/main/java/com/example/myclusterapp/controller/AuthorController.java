@@ -1,83 +1,77 @@
 package com.example.myclusterapp.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.eclipse.store.storage.types.StorageManager;
 
 import com.example.myclusterapp.domain.Author;
+import com.example.myclusterapp.dto.PutAuthorDto;
+import com.example.myclusterapp.storage.Authors;
 import com.example.myclusterapp.storage.DataRoot;
 
-import io.micronaut.http.HttpResponse;
+import io.micronaut.core.annotation.NonNull;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Delete;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.annotation.Post;
 import io.micronaut.http.annotation.Put;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
 @Controller("/author")
 public class AuthorController
 {
-	private final List<Author> authors;
+	private final Authors authors;
 	private final StorageManager storage;
 
-	public AuthorController(ClusterStorageManager<DataRoot> storage)
+	public AuthorController(final ClusterStorageManager<DataRoot> storage)
 	{
 		this.storage = storage;
-		this.authors = storage.root().get().authors;
-	}
-	
-	@Post("/explode")
-	public void explode()
-	{
-		final var storer = storage.createEagerStorer();
-		storer.store(new String("Hello :)"));
-		storer.commit();
+		this.authors = storage.root().get().authors();
 	}
 
 	@Get("/{uid}")
-	public Optional<Author> getAuthor(@PathVariable String uid)
+	public Author getAuthor(@PathVariable @NonNull @NotBlank final String uid)
 	{
-		return authors.stream().filter(a -> a.uid().equals(uid)).findFirst();
+		return this.authors.find(uid);
 	}
 
 	@Get
 	public List<Author> getAllAuthors()
 	{
-		return authors;
+		return this.authors.findAll();
 	}
 
 	@Put
-	public HttpResponse<Object> putAuthor(@Body Author author)
+	public Author putAuthor(@Body @NonNull @NotNull @Valid final PutAuthorDto dto)
 	{
-		if (author.uid() == null)
+		final Author author;
+
+		if (dto.uid() == null || this.authors.remove(dto.uid()) == null)
 		{
-			author = new Author(author);
+			author = new Author(dto.firstname(), dto.lastname());
 		}
 		else
 		{
-			final var a = author;
-			authors.stream().filter(b -> b.uid().equals(a.uid())).forEach(authors::remove);
+			author = new Author(dto.uid(), dto.firstname(), dto.lastname());
 		}
 
-		authors.add(author);
-		storage.store(authors);
-		return HttpResponse.ok(author);
+		this.authors.put(author);
+		this.authors.store(this.storage);
+		return author;
 	}
 
 	@Delete("/{uid}")
-	public Optional<Author> deleteAuthor(@PathVariable String uid)
+	public Author deleteAuthor(@PathVariable @NonNull @NotBlank final String uid)
 	{
-		final var findAuthor = authors.stream().filter(a -> a.uid().equals(uid)).findFirst();
-		if (findAuthor.isEmpty())
+		final var author = this.authors.remove(uid);
+		if (author != null)
 		{
-			return Optional.empty();
+			this.authors.store(this.storage);
 		}
-		final var old = findAuthor.get();
-		authors.remove(old);
-		return Optional.of(old);
+		return author;
 	}
 }

@@ -1,11 +1,9 @@
 package com.example.myclusterapp.storage;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.example.myclusterapp.domain.Author;
-
-public class DataRoot
+public record DataRoot(Authors authors, Books books)
 {
-	public final List<Author> authors = new ArrayList<>();
+	public DataRoot()
+	{
+		this(new Authors(), new Books());
+	}
 }
