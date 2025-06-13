@@ -2,8 +2,6 @@ package com.example.myclusterapp.dto;
 
 import java.time.LocalDate;
 
-import com.example.myclusterapp.domain.Author;
-
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
@@ -17,7 +15,7 @@ public record PutBookDto(
 	@Nullable String isbn,
 	@NonNull @NotBlank String title,
 	@NonNull LocalDate publicationDate,
-	@Valid @NonNull Author author
+	@Valid @NonNull @NotBlank String authorUid
 )
 {
 }
