@@ -6,7 +6,6 @@ import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.serde.annotation.Serdeable;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 
 @Serdeable
@@ -15,7 +14,7 @@ public record PutBookDto(
 	@Nullable String isbn,
 	@NonNull @NotBlank String title,
 	@NonNull LocalDate publicationDate,
-	@Valid @NonNull @NotBlank String authorUid
+	@NonNull @NotBlank String authorUid
 )
 {
 }
