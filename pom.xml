@@ -54,6 +54,12 @@
             <artifactId>microstream-enterprise-cluster-nodelibrary-helidon</artifactId>
             <version>1.11.0-SNAPSHOT</version>
         </dependency>
+        <!-- EclipseStore -->
+        <dependency>
+            <groupId>one.microstream</groupId>
+            <artifactId>gigamap</artifactId>
+            <version>1.2.0-alpha3</version>
+        </dependency>
         
         <!-- Helidon -->
         <dependency>
