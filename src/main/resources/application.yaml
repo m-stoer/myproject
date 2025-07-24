@@ -1,4 +1,4 @@
 eclipsestore:
   distribution:
     kafka:
-      async: true
+      async: false
