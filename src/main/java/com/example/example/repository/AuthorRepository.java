@@ -9,11 +9,12 @@ import com.example.example.DataRoot;
 import com.example.example.domain.Author;
 import com.example.example.exception.IndexAlreadyExistsException;
 
-import jakarta.inject.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
-@Singleton
+@ApplicationScoped
 public class AuthorRepository extends ClusterLockScope
 {
 	private static final int PAGE_SIZE_LIMIT = 250;
@@ -21,11 +22,15 @@ public class AuthorRepository extends ClusterLockScope
 	private final List<Author> authors;
 	private final StorageManager storage;
 
-	public AuthorRepository(final ClusterStorageManager<DataRoot> storageManager, final LockedExecutor executor)
+	@SuppressWarnings({
+		"unchecked", "rawtypes"
+	})
+	@Inject
+	public AuthorRepository(final ClusterStorageManager storageManager, final LockedExecutor executor)
 	{
 		super(executor);
 		this.storage = storageManager;
-		this.authors = storageManager.root().get().getAuthors();
+		this.authors = ((ClusterStorageManager<DataRoot>)storageManager).root().get().getAuthors();
 	}
 
 	public Author getAuthorByEmail(final String email)

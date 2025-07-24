@@ -9,7 +9,8 @@ import com.example.example.domain.blob.BlobBook;
 import com.example.example.domain.indices.BlobBookIndices;
 import com.example.example.exception.IndexAlreadyExistsException;
 
-import jakarta.inject.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 import one.microstream.gigamap.GigaMap;
@@ -25,17 +26,21 @@ import one.microstream.gigamap.GigaMap;
  * Also another difference for testing purposes is that the books are stored in
  * a giga map.
  */
-@Singleton
+@ApplicationScoped
 public class BlobBookRepository extends ClusterLockScope
 {
 	private static final int PAGE_SIZE_LIMIT = 250;
 
 	private final GigaMap<BlobBook> books;
 
-	public BlobBookRepository(final ClusterStorageManager<DataRoot> storageManager, final LockedExecutor executor)
+	@SuppressWarnings({
+		"unchecked", "rawtypes"
+	})
+	@Inject
+	public BlobBookRepository(final ClusterStorageManager storageManager, final LockedExecutor executor)
 	{
 		super(executor);
-		this.books = storageManager.root().get().getBlobBooks();
+		this.books = ((ClusterStorageManager<DataRoot>)storageManager).root().get().getBlobBooks();
 	}
 
 	public BlobBook getBookByISBN(final String isbn)

@@ -9,22 +9,27 @@ import com.example.example.DataRoot;
 import com.example.example.domain.Book;
 import com.example.example.exception.IndexAlreadyExistsException;
 
-import jakarta.inject.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
 import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
-@Singleton
+@ApplicationScoped
 public class BookRepository extends ClusterLockScope
 {
 	private static final int PAGE_SIZE_LIMIT = 250;
 	private final List<Book> books;
 	private final StorageManager storage;
 
-	public BookRepository(final ClusterStorageManager<DataRoot> storageManager, final LockedExecutor executor)
+	@SuppressWarnings({
+		"unchecked", "rawtypes"
+	})
+	@Inject
+	public BookRepository(final ClusterStorageManager storageManager, final LockedExecutor executor)
 	{
 		super(executor);
 		this.storage = storageManager;
-		this.books = storageManager.root().get().getBooks();
+		this.books = ((ClusterStorageManager<DataRoot>)storageManager).root().get().getBooks();
 	}
 
 	public Book getBookByISBN(final String isbn)
