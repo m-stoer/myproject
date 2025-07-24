@@ -4,21 +4,30 @@ import java.util.List;
 
 import com.example.example.domain.Author;
 import com.example.example.domain.blob.BlobAuthor;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.annotation.Nullable;
+import jakarta.json.bind.annotation.JsonbCreator;
+import jakarta.json.bind.annotation.JsonbNillable;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 
 public record AuthorDto(
-	@Nullable @PositiveOrZero Long id,
+	@JsonbNillable @Nullable @PositiveOrZero Long id,
 	@NotNull @NotBlank String email,
 	@NotNull @NotBlank String firstname,
 	@NotNull @NotBlank String lastname,
 	@NotNull @NotEmpty List<AddressDto> addresses
 )
 {
+	@JsonbCreator
+	public AuthorDto
+	{
+	}
+
 	public AuthorDto(@NotNull final Author author)
 	{
 		this(

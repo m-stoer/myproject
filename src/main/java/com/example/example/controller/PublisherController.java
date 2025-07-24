@@ -10,7 +10,7 @@ import com.example.example.repository.PublisherRepository;
 import io.helidon.http.HttpException;
 import io.helidon.http.Status;
 import jakarta.annotation.Nullable;
-import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -24,12 +24,12 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 
-@ApplicationScoped
 @Path("/publisher")
 public class PublisherController
 {
 	private final PublisherRepository publishers;
 
+	@Inject
 	public PublisherController(final PublisherRepository publishers)
 	{
 		this.publishers = publishers;

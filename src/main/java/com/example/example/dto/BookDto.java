@@ -4,7 +4,9 @@ import java.time.LocalDate;
 
 import com.example.example.domain.Book;
 import com.example.example.domain.blob.BlobBook;
+import com.fasterxml.jackson.annotation.JsonCreator;
 
+import jakarta.json.bind.annotation.JsonbCreator;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -22,6 +24,11 @@ public record BookDto(
 	@NotNull @Valid PublisherDto publisher
 )
 {
+	@JsonbCreator
+	public BookDto
+	{
+	}
+
 	public BookDto(final Book book)
 	{
 		this(
@@ -36,7 +43,7 @@ public record BookDto(
 			new PublisherDto(book.getPublisher())
 		);
 	}
-	
+
 	public BookDto(final BlobBook book)
 	{
 		this(

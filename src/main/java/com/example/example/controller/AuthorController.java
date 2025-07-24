@@ -10,7 +10,6 @@ import com.example.example.repository.AuthorRepository;
 import io.helidon.http.HttpException;
 import io.helidon.http.Status;
 import jakarta.annotation.Nullable;
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -25,7 +24,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 
-@ApplicationScoped
 @Path("/author")
 public class AuthorController
 {
