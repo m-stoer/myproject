@@ -3,15 +3,15 @@ package one.microstream.bsr.repository;
 import java.util.List;
 
 import org.eclipse.serializer.concurrency.LockedExecutor;
+import org.eclipse.store.gigamap.types.GigaMap;
 import org.springframework.stereotype.Repository;
 
 import one.microstream.bsr.DataRoot;
 import one.microstream.bsr.domain.blob.BlobBook;
 import one.microstream.bsr.domain.indices.BlobBookIndices;
 import one.microstream.bsr.exception.IndexAlreadyExistsException;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
-import one.microstream.gigamap.GigaMap;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterLockScope;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 /**
  * The difference between this repository and the normal book repository is that

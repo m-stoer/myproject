@@ -4,12 +4,13 @@ package one.microstream.bsr;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.store.gigamap.types.GigaMap;
+
 import one.microstream.bsr.domain.Author;
 import one.microstream.bsr.domain.Book;
 import one.microstream.bsr.domain.Publisher;
 import one.microstream.bsr.domain.blob.BlobBook;
 import one.microstream.bsr.domain.indices.BlobBookIndices;
-import one.microstream.gigamap.GigaMap;
 
 public class DataRoot
 {

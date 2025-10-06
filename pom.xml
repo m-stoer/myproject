@@ -20,29 +20,22 @@
 		<java.version>17</java.version>
 	</properties>
 	
-    <repositories>
-        <repository>
-            <id>ms-ee</id>
-            <name>Microstream Enterprise Releases</name>
-            <url>https://repo.microstream.one/repository/ms-ee/</url>
-        </repository>
-    </repositories>
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>one.microstream</groupId>
-			<artifactId>microstream-enterprise-cluster-nodelibrary-springboot</artifactId>
-			<version>1.11.0</version>
-		</dependency>
-        <!-- EclipseStore -->
+        <!-- MicroStream Nodelibrary -->
         <dependency>
             <groupId>one.microstream</groupId>
+            <artifactId>microstream-enterprise-cluster-nodelibrary-springboot</artifactId>
+            <version>1.11.0-SNAPSHOT</version>
+        </dependency>
+        <!-- EclipseStore -->
+        <dependency>
+            <groupId>org.eclipse.store</groupId>
             <artifactId>gigamap</artifactId>
-            <version>1.2.0-alpha3</version>
+            <version>3.0.0</version>
         </dependency>
 	</dependencies>
 

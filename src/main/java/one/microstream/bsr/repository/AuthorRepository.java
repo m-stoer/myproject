@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import one.microstream.bsr.DataRoot;
 import one.microstream.bsr.domain.Author;
 import one.microstream.bsr.exception.IndexAlreadyExistsException;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterLockScope;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 @Repository
 public class AuthorRepository extends ClusterLockScope
