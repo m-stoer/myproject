@@ -3,7 +3,6 @@ package com.example.example.dto;
 import java.time.LocalDate;
 
 import com.example.example.domain.Book;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 import jakarta.json.bind.annotation.JsonbCreator;
 import jakarta.validation.constraints.NotBlank;

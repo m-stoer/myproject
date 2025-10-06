@@ -3,6 +3,7 @@ package com.example.example.repository;
 import java.util.List;
 
 import org.eclipse.serializer.concurrency.LockedExecutor;
+import org.eclipse.store.gigamap.types.GigaMap;
 
 import com.example.example.DataRoot;
 import com.example.example.domain.blob.BlobBook;
@@ -11,9 +12,8 @@ import com.example.example.exception.IndexAlreadyExistsException;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
-import one.microstream.gigamap.GigaMap;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterLockScope;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 /**
  * The difference between this repository and the normal book repository is that

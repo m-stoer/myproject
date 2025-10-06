@@ -4,8 +4,6 @@ import com.example.example.domain.Address;
 
 import jakarta.annotation.Nullable;
 import jakarta.json.bind.annotation.JsonbCreator;
-import jakarta.json.bind.annotation.JsonbNillable;
-import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 import com.example.example.domain.Book;
 import com.example.example.domain.blob.BlobBook;
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 import jakarta.json.bind.annotation.JsonbCreator;
 import jakarta.validation.Valid;

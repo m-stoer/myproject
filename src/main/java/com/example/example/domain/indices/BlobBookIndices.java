@@ -2,11 +2,11 @@ package com.example.example.domain.indices;
 
 import java.time.LocalDate;
 
-import com.example.example.domain.blob.BlobBook;
+import org.eclipse.store.gigamap.types.IndexerLocalDate;
+import org.eclipse.store.gigamap.types.IndexerLong;
+import org.eclipse.store.gigamap.types.IndexerString;
 
-import one.microstream.gigamap.IndexerLocalDate;
-import one.microstream.gigamap.IndexerLong;
-import one.microstream.gigamap.IndexerString;
+import com.example.example.domain.blob.BlobBook;
 
 public final class BlobBookIndices
 {

@@ -11,8 +11,8 @@ import com.example.example.exception.IndexAlreadyExistsException;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterLockScope;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterLockScope;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 @ApplicationScoped
 public class PublisherRepository extends ClusterLockScope

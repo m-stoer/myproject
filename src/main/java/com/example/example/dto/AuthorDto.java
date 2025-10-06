@@ -4,8 +4,6 @@ import java.util.List;
 
 import com.example.example.domain.Author;
 import com.example.example.domain.blob.BlobAuthor;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.annotation.Nullable;
 import jakarta.json.bind.annotation.JsonbCreator;
