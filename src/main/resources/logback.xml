@@ -1,0 +1,18 @@
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>false</withJansi>
+	    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.apache.kafka.clients.consumer.internals" level="${KAFKA_LOG_LEVEL:-WARN}" />
+
+    <logger name="one.microstream.enterprise.cluster.nodelibrary" level="${NODELIB_LOG_LEVEL:-TRACE}" />
+    <logger name="Tracing" level="TRACE" />
+
+	<root level="${LOG_LEVEL:-INFO}">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
