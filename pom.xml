@@ -24,6 +24,10 @@
 			<id>microstream-ee</id>
 			<url>https://repo.microstream.one/repository/ms-ee/</url>
 		</repository>
+		<repository>
+			<id>microstream-maven-ee</id>
+			<url>https://repo.microstream.one/repository/ms-ee/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
