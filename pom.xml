@@ -32,8 +32,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>one.microstream</groupId>
-			<artifactId>microstream-enterprise-cluster-nodelibrary-springboot</artifactId>
+			<groupId>org.eclipse.datagrid</groupId>
+            <artifactId>cluster-nodelibrary-spring-boot</artifactId>
 			<version>[1.0,2.0)</version>
 		</dependency>
 		<dependency>
