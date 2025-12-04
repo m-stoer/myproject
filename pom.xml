@@ -28,6 +28,10 @@
 			<id>central</id>
 			<url>https://repo.maven.apache.org/maven2</url>
 		</repository>
+		<repository>
+			<id>microstream-maven-ee</id>
+			<url>https://repo.microstream.one/repository/ms-ee/</url>
+		</repository>
 	</repositories>
 	
     <dependencyManagement>
