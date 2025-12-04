@@ -1,4 +1,6 @@
-package com.example.example;
+package com.example.example.storage;
+
+import com.example.example.storage.DataRoot;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
