@@ -21,6 +21,6 @@ public class ExampleController
 	@GetMapping
 	public String root()
 	{
-		return "Data root, created @ " + this.root;
+		return "Data root, created @ " + root;
 	}
 }
