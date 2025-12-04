@@ -1,4 +1,4 @@
-package one.microstream.bsr;
+package com.example.example;
 
 import io.micronaut.runtime.Micronaut;
 
