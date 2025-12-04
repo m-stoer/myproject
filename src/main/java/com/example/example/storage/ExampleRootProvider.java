@@ -1,4 +1,4 @@
-package one.microstream.bsr;
+package com.example.example.storage;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +11,6 @@ public class ExampleRootProvider
 	@Bean
 	public RootProvider<DataRoot> rootProvider()
 	{
-		return DataRoot::new;
+		return () -> new DataRoot();
 	}
 }

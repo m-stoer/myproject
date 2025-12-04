@@ -1,4 +1,4 @@
-package one.microstream.bsr;
+package com.example.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,10 +8,10 @@ import one.microstream.enterprise.cluster.nodelibrary.springboot.MicroStreamClus
 
 @SpringBootApplication
 @Import(MicroStreamCluster.class)
-public class DemoApplication
+public class Application
 {
 	public static void main(final String[] args)
 	{
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
