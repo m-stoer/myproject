@@ -1,11 +1,10 @@
 package com.example.example.controller;
 
+import org.eclipse.datagrid.cluster.nodelibrary.types.ClusterStorageManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.example.storage.DataRoot;
-
-import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 @RestController("/")
 public class ExampleController

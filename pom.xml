@@ -20,10 +20,10 @@
 	</properties>
 	
 	<repositories>
-		<repository>
-			<id>microstream-ee</id>
-			<url>https://repo.microstream.one/repository/ms-ee/</url>
-		</repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
 		<repository>
 			<id>microstream-maven-ee</id>
 			<url>https://repo.microstream.one/repository/ms-ee/</url>
@@ -33,7 +33,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.datagrid</groupId>
-            <artifactId>cluster-nodelibrary-spring-boot</artifactId>
+            <artifactId>cluster-nodelibrary-springboot</artifactId>
 			<version>[1.0,2.0)</version>
 		</dependency>
 		<dependency>

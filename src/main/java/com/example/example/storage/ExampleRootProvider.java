@@ -1,9 +1,8 @@
 package com.example.example.storage;
 
+import org.eclipse.datagrid.cluster.nodelibrary.springboot.RootProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import one.microstream.enterprise.cluster.nodelibrary.springboot.RootProvider;
 
 @Configuration
 public class ExampleRootProvider
