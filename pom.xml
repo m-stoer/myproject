@@ -72,7 +72,7 @@
 
 		<dependency>
 			<groupId>org.eclipse.datagrid</groupId>
-			<artifactId>cluster-nodelibrary-micronaut</artifactId>
+			<artifactId>cluster-nodelibrary-helidon</artifactId>
 			<version>${eclipse.datagrid.version}</version>
 		</dependency>
 
