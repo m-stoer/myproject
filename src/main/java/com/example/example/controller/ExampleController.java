@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.example.storage.DataRoot;
 
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
+import one.microstream.enterprise.cluster.nodelibrary.types.ClusterStorageManager;
 
 @RestController("/")
 public class ExampleController
@@ -22,6 +22,6 @@ public class ExampleController
 	@GetMapping
 	public String root()
 	{
-		return "Data root, created @ " + root;
+		return "Data root, created @ " + this.root;
 	}
 }
