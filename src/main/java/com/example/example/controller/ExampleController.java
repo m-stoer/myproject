@@ -4,27 +4,22 @@ import org.eclipse.datagrid.cluster.nodelibrary.types.ClusterStorageManager;
 
 import com.example.example.storage.DataRoot;
 
-import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
 
-@Path("/")
+@Controller("/")
 public class ExampleController
 {
 	private final ClusterStorageManager<DataRoot> storage;
-	private final DataRoot root;
-
-	@SuppressWarnings({ "unchecked", "rawtypes"	})
-	@Inject
-	public ExampleController(final ClusterStorageManager storage)
+	
+	public ExampleController(final ClusterStorageManager<DataRoot> storage)
 	{
 		this.storage = storage;
-		this.root = this.storage.root().get();
 	}
 	
-	@GET
+	@Get
 	public String root()
 	{
-		return "Data root, created @ " + this.root.getData();
+		return "Data root, created @ " + this.storage.root().get().getData();
 	}
 }
