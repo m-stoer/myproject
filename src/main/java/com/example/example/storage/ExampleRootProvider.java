@@ -1,10 +1,9 @@
 package com.example.example.storage;
 
-import com.example.example.storage.DataRoot;
+import org.eclipse.datagrid.cluster.nodelibrary.helidon.RootProvider;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
-import one.microstream.enterprise.cluster.nodelibrary.helidon.RootProvider;
 
 @ApplicationScoped
 public class ExampleRootProvider

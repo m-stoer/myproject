@@ -1,11 +1,12 @@
 package com.example.example.controller;
 
+import org.eclipse.datagrid.cluster.nodelibrary.types.ClusterStorageManager;
+
 import com.example.example.storage.DataRoot;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import one.microstream.enterprise.cluster.nodelibrary.common.ClusterStorageManager;
 
 @Path("/")
 public class ExampleController
@@ -24,6 +25,6 @@ public class ExampleController
 	@GET
 	public String root()
 	{
-		return "Data root, created @ " + root.getData();
+		return "Data root, created @ " + this.root.getData();
 	}
 }
